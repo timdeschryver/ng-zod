@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/zod-playground'),
+      dir: require('path').join(__dirname, './coverage/ng-zod'),
       subdir: '.',
       reporters: [
         { type: 'html' },
