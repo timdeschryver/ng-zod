@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import type {Observable} from "rxjs";
 import {UsersSchema, UserSchema} from "./user.model";
 import type {User} from "./user.model";
-import {validateResponse} from "./validate.response";
+import {parseResponse} from "./parse-response.operator";
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +14,13 @@ export class UserService {
 
   getUser(id: number): Observable<User> {
     return this.http.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`).pipe(
-      validateResponse(UserSchema),
+      parseResponse(UserSchema),
     );
   }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users').pipe(
-      validateResponse(UsersSchema),
+      parseResponse(UsersSchema),
     );
   }
 }

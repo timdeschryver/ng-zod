@@ -3,7 +3,7 @@ import type {MonoTypeOperatorFunction} from "rxjs";
 import type {ZodType} from "zod";
 import {environment} from "../environments/environment";
 
-export function validateResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
+export function parseResponse<T>(schema: ZodType): MonoTypeOperatorFunction<T> {
   return tap({
     next: (value: any) => {
       if (!environment.production) {
